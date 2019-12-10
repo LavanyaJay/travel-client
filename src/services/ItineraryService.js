@@ -1,6 +1,6 @@
 import axios from "axios";
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:4000",
   withCredentials: false,
   headers: {
     Accept: "application/json",
@@ -8,11 +8,10 @@ const apiClient = axios.create({
   }
 });
 export default {
-  getEvents(perPage, page) {
-    return apiClient.get("/events?_limit=" + perPage + "&_page=" + page);
+  getCity() {
+    return apiClient.get("/city");
   },
   getEvent(id) {
-    console.log("id in service: ", id);
     return apiClient.get(`/events/${id}`);
   },
   postEvent(event) {
