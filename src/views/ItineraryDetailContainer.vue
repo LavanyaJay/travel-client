@@ -36,11 +36,16 @@ export default {
 }
 .newmain {
   display: flex;
+  background-image: none;
+  background: white;
+  height: 700px;
+  margin-top: 50px;
 }
 .board {
-  background-color: lightskyblue;
+  background-color: lightblue;
   height: 200px;
   width: 500px;
   border: 1px solid black;
+  margin-top: 10px;
 }
 </style>
