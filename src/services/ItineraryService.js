@@ -11,8 +11,9 @@ export default {
   getCity() {
     return apiClient.get("/city");
   },
-  getEvent(id) {
-    return apiClient.get(`/events/${id}`);
+  computeItinerary(data) {
+    console.log(data);
+    return apiClient.post(`/itinerary`, data);
   },
   postEvent(event) {
     return apiClient.post(`/events`, event);

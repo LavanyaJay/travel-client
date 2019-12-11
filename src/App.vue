@@ -1,19 +1,10 @@
 <template>
   <div id="app">
-    <NavBar />
-
     <router-view />
     <!-- <router-view :key="$route.fullPath" /> -->
   </div>
 </template>
-<script>
-import NavBar from "@/components/NavBar.vue";
-export default {
-  components: {
-    NavBar
-  }
-};
-</script>
+<script></script>
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -23,27 +14,17 @@ export default {
   padding: 0 20px 20px;
   margin: 0 auto;
   color: white;
+  width: inherit;
 }
 
 #nav {
   padding: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   border: 1px solid black;
+  align-content: center;
+  padding-left: 500px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: black;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-html {
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
@@ -52,7 +33,13 @@ body {
   background-image: url("https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Desktop-Travel-Images-PIC-WPD00459.jpg");
   background-repeat: no-repeat;
   background-size: auto;
-  color: white;
+  color: black;
+  height: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 hr {

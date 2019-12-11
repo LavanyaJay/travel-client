@@ -1,5 +1,5 @@
 import ItineraryService from "../../services/ItineraryService";
-//export const namespaced = true;
+
 export const state = {
   cities: []
 };
