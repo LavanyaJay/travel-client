@@ -1,10 +1,6 @@
 <template>
   <div id="nav" class="nav">
-    <router-link to="/" class="brand">Itinerary Planner</router-link>
-    <!-- <nav>
-      <router-link :to="{ name: 'eventList' }">List Event</router-link>|
-      <router-link :to="{ name: 'createEvent' }">Create Event</router-link>
-    </nav> -->
+    ITINERARY PLANNER
   </div>
 </template>
 
@@ -14,26 +10,13 @@ export default {};
 
 <style scoped>
 .nav {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 60px;
-}
-.nav > .brand {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 1.5em;
-  color: #39b982;
-  text-decoration: none;
-}
-.nav .nav-item {
-  box-sizing: border-box;
-  margin: 0 5px;
-  color: rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
-.nav .nav-item.router-link-exact-active {
-  color: #39b982;
-  border-bottom: solid 2px #39b982;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  color: rgb(92, 170, 219);
+  font-weight: bold;
+  background: rgb(21, 61, 105);
 }
 </style>
