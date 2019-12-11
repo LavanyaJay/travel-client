@@ -8,11 +8,22 @@
         ><star-rating
           v-model="itinerary.rating"
           star-size="20"
-          glow="2"
+          read-only="true"
         ></star-rating
       ></b-card-sub-title>
       <b-card-text> Duration: {{ itinerary.duration }} </b-card-text>
-      <b-button href="#" variant="primary">More details</b-button>
+      <b-button id="show-btn" @click="showModal" variant="primary"
+        >More details</b-button
+      >
+      <b-modal ref="my-modal" hide-footer :title="itinerary.placeName">
+        <div class="d-block text-center">
+          <img :src="itinerary.placeImage" alt="" />
+          <p class="content">{{ itinerary.placeDesc }}</p>
+        </div>
+        <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
+          >Close</b-button
+        >
+      </b-modal>
     </b-card-body>
     <div class="image">
       <img :src="itinerary.placeImage" alt="" />
@@ -32,6 +43,15 @@ export default {
   props: {
     itinerary: {
       type: Object
+    }
+  },
+
+  methods: {
+    showModal() {
+      this.$refs["my-modal"].show();
+    },
+    hideModal() {
+      this.$refs["my-modal"].hide();
     }
   }
 };
@@ -54,8 +74,10 @@ button {
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
 .image {
-  height: 180px;
+  height: inherit;
   width: 300px;
-  border: 1px solid black;
+}
+.content {
+  text-align: left;
 }
 </style>

@@ -8,7 +8,9 @@
         label-for="input-1"
       >
         <b-form-select id="input-1" v-model="form.city">
-          <option v-for="city in cities" :key="city.id">{{ city.name }}</option>
+          <option v-for="city in cities" :key="city.name">{{
+            city.name
+          }}</option>
         </b-form-select>
       </b-form-group>
       <b-form-group id="input-group-2" label="Start Time:" label-for="input-2">
@@ -80,11 +82,11 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       console.log(this.form.city);
-      alert(JSON.stringify(this.form));
+      //alert(JSON.stringify(this.form));
       this.$store
         .dispatch("createItinerary", this.form)
         .then(() => {
-          alert("Ity created successfully");
+          //alert("Ity created successfully");
           this.$router.push({
             name: "itinerary"
           });
@@ -95,9 +97,9 @@ export default {
 
     createNewForm() {
       return {
+        city: null,
         startTime: "",
         endTime: "",
-        city: "",
         checked: []
       };
     }
