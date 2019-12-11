@@ -1,11 +1,6 @@
 import axios from "axios";
 const apiClient = axios.create({
-  baseURL: "http://localhost:4000",
-  withCredentials: false,
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  }
+  baseURL: "http://localhost:4000"
 });
 export default {
   getCity() {
@@ -15,7 +10,9 @@ export default {
     console.log(data);
     return apiClient.post(`/itinerary`, data);
   },
-  postEvent(event) {
-    return apiClient.post(`/events`, event);
+  addRejectedAttraction(name) {
+    console.log(typeof name);
+    const newName = name.toString();
+    return apiClient.post(`/rejectAttraction`, newName);
   }
 };

@@ -1,9 +1,8 @@
 <template>
   <div class="ity_card">
     <b-card-body>
-      <b-card-title
-        >: {{ itinerary.placeName }} <button>x</button>
-      </b-card-title>
+      <b-card-title> {{ itinerary.placeName }} </b-card-title>
+
       <b-card-sub-title
         ><star-rating
           v-model="itinerary.rating"
@@ -15,6 +14,7 @@
       <b-button id="show-btn" @click="showModal" variant="primary"
         >More details</b-button
       >
+
       <b-modal ref="my-modal" hide-footer :title="itinerary.placeName">
         <div class="d-block text-center">
           <img :src="itinerary.placeImage" alt="" />
@@ -24,6 +24,9 @@
           >Close</b-button
         >
       </b-modal>
+      <b-card-footer class="footer" @click="deleteAttraction"
+        >Not interested <font-awesome-icon icon="trash"
+      /></b-card-footer>
     </b-card-body>
     <div class="image">
       <img :src="itinerary.placeImage" alt="" />
@@ -52,6 +55,15 @@ export default {
     },
     hideModal() {
       this.$refs["my-modal"].hide();
+    },
+    deleteAttraction() {
+      console.log("Hi");
+      this.$store
+        .dispatch("deleteAttraction", this.itinerary)
+        .then(() => {
+          alert("Ity deleted successfully");
+        })
+        .catch({});
     }
   }
 };
@@ -79,5 +91,10 @@ button {
 }
 .content {
   text-align: left;
+}
+.footer {
+  width: 200px;
+  float: right;
+  height: 40px;
 }
 </style>
