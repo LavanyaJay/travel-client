@@ -9,7 +9,7 @@ export const mutations = {
   },
   DELETE_ATTRACTION(state, data) {
     state.itinerary = state.itinerary.filter(
-      itinerary => itinerary.id === data.id
+      itinerary => itinerary.id !== data.id
     );
   }
 };

@@ -15,9 +15,10 @@ export default new Router({
       component: ItineraryFormContainer
     },
     {
-      path: "/itinerary",
+      path: "/itinerary/:name",
       name: "itinerary",
-      component: ItineraryDetailContainer
+      component: ItineraryDetailContainer,
+      props: true
     }
   ]
 });

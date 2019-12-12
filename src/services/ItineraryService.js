@@ -1,6 +1,13 @@
 import axios from "axios";
+//import VueFetch from "vue-fetch";
 const apiClient = axios.create({
-  baseURL: "http://localhost:4000"
+  baseURL: "http://localhost:4000",
+  withCredentials: false,
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*"
+  }
 });
 export default {
   getCity() {
@@ -11,8 +18,8 @@ export default {
     return apiClient.post(`/itinerary`, data);
   },
   addRejectedAttraction(name) {
-    console.log(typeof name);
-    const newName = name.toString();
-    return apiClient.post(`/rejectAttraction`, newName);
+    console.log(name);
+    const data = { name: name };
+    return apiClient.post(`/rejectAttraction`, data);
   }
 };
