@@ -1,35 +1,45 @@
 <template>
   <div class="ity_card">
     <b-card-body>
-      <b-card-title> {{ itinerary.placeName }} </b-card-title>
+      <b-card-title> {{ itinerary.attraction.placeName }} </b-card-title>
 
       <b-card-sub-title
         ><star-rating
-          v-model="itinerary.rating"
+          v-model="itinerary.attraction.rating"
           star-size="20"
           read-only="true"
         ></star-rating
       ></b-card-sub-title>
-      <b-card-text> Duration: {{ itinerary.duration }} </b-card-text>
-      <b-button id="show-btn" @click="showModal" variant="primary"
-        >More details</b-button
-      >
+      <b-card-text> Duration: {{ itinerary.attraction.duration }} </b-card-text>
+      <b-card-text class="bg-info">
+        StartTime: {{ itinerary.fromTime }}
+      </b-card-text>
+      <b-card-text class="bg-info">
+        EndTime: {{ itinerary.toTime }}
+      </b-card-text>
 
-      <b-modal ref="my-modal" hide-footer :title="itinerary.placeName">
-        <div class="d-block text-center">
-          <img :src="itinerary.placeImage" alt="" />
-          <p class="content">{{ itinerary.placeDesc }}</p>
-        </div>
-        <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
-          >Close</b-button
-        >
-      </b-modal>
       <b-card-footer class="footer" @click="deleteAttraction"
         >Not interested <font-awesome-icon icon="trash"
       /></b-card-footer>
     </b-card-body>
     <div class="image">
-      <img :src="itinerary.placeImage" alt="" />
+      <img :src="itinerary.attraction.placeImage" alt="" class="img" />
+      <b-button id="show-btn" @click="showModal" variant="primary"
+        >More details</b-button
+      >
+      <b-modal
+        ref="my-modal"
+        hide-footer
+        :title="itinerary.attraction.placeName"
+      >
+        <div class="d-block text-center">
+          <img :src="itinerary.attraction.placeImage" alt="" />
+          <p class="content">{{ itinerary.attraction.placeDesc }}</p>
+        </div>
+        <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
+          >Close</b-button
+        >
+      </b-modal>
     </div>
   </div>
 </template>
@@ -44,9 +54,7 @@ export default {
     StarRating
   },
   props: {
-    itinerary: {
-      type: Object
-    }
+    itinerary: Object
   },
 
   methods: {
@@ -59,7 +67,7 @@ export default {
     deleteAttraction() {
       console.log("Hi");
       this.$store
-        .dispatch("deleteAttraction", this.itinerary)
+        .dispatch("deleteItinerary", this.itinerary)
         .then(() => {
           alert("Ity deleted successfully");
         })
@@ -72,12 +80,16 @@ export default {
 <style scoped>
 button {
   background: "red";
+  float: left;
+}
+time {
+  font-weight: bold;
 }
 .ity_card {
-  background-color: lightblue;
-  margin-bottom: 10px;
+  background-color: linen;
+
   transition: all 0.2s linear;
-  width: 700px;
+  width: 800px;
   color: black;
   display: flex;
 }
@@ -88,6 +100,10 @@ button {
 .image {
   height: inherit;
   width: 300px;
+  margin-bottom: 5px;
+}
+.img {
+  margin-bottom: 5px;
 }
 .content {
   text-align: left;
@@ -96,5 +112,9 @@ button {
   width: 200px;
   float: right;
   height: 40px;
+}
+
+.star {
+  background: black;
 }
 </style>
