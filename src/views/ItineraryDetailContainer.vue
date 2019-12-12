@@ -1,5 +1,6 @@
 <template>
   <div class="newmain">
+    <router-link :to="{ name: 'ity_form' }">Prev Page</router-link>
     <div class="main">
       <ItineraryCard
         v-for="(itinerary, index) in itinerary.itinerary"
@@ -8,9 +9,17 @@
       />
     </div>
     <div class="board">
-      Hope you are happy with the itinerary.....Otherwise we can try to rebuild
-      another one
-      <button>Rebuild</button>
+      <h3 class="heading">Your trip schedule is as follows:</h3>
+      <div
+        class="schedule"
+        v-for="(itinerary, index) in itinerary.itinerary"
+        :key="`itinerary-${index}`"
+      >
+        <p color="blue">{{ index + 1 }}. {{ itinerary.placeName }}</p>
+        <p>From:</p>
+        <p>To:</p>
+      </div>
+      <button v-on="onClick">Rebuild</button>
     </div>
   </div>
 </template>
@@ -20,10 +29,28 @@ import { mapState } from "vuex";
 import ItineraryCard from "../components/ItineraryCard";
 
 export default {
+  props: ["name"],
   components: {
     ItineraryCard
   },
-  computed: mapState(["itinerary"])
+  computed: mapState(["itinerary"]),
+  methods: {
+    onClick(evt) {
+      evt.preventDefault();
+      console.log(this.form.city);
+      alert(JSON.stringify(this.form));
+      this.$store
+        .dispatch("createItinerary", this.form)
+        .then(() => {
+          //alert("Ity created successfully");
+          this.$router.push({
+            name: "itinerary"
+          });
+          this.form = this.createNewForm();
+        })
+        .catch({});
+    }
+  }
 };
 </script>
 
@@ -43,9 +70,26 @@ export default {
 }
 .board {
   background-color: lightblue;
-  height: 200px;
+  color: black;
+  height: 700px;
   width: 500px;
   border: 1px solid black;
   margin-top: 10px;
+}
+.schedule {
+  font-weight: bold;
+  font-family: fantasy;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+button {
+  margin-left: 200px;
+}
+.heading {
+  font-family: cursive;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 </style>

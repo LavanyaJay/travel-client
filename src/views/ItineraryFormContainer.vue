@@ -10,6 +10,7 @@
 
 <script>
 import ItineraryForm from "../components/ItineraryForm";
+
 import { mapState } from "vuex";
 import NavBar from "../components/NavBar";
 

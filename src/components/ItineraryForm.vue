@@ -1,16 +1,16 @@
 <template>
   <div class="main">
     <b-form @submit="onSubmit">
-      <b-form-group
-        id="input-group-1"
-        v-model="form.city"
-        label="City:"
-        label-for="input-1"
-      >
+      <b-form-group v-model="form.city" id="input-group-1" label="City:" label-for="input-1">
         <b-form-select id="input-1" v-model="form.city">
-          <option v-for="city in cities" :key="city.name">{{
+          <!-- <template v-slot:first>
+            <option :value="null" disabled>-- Please select an option --</option>
+          </template>-->
+          <option v-for="city in options" :key="city.name">
+            {{
             city.name
-          }}</option>
+            }}
+          </option>
         </b-form-select>
       </b-form-group>
       <b-form-group id="input-group-2" label="Start Time:" label-for="input-2">
@@ -69,26 +69,37 @@ export default {
     "b-form": BForm,
     "b-form-checkbox-group": BFormCheckboxGroup
   },
+  props: {
+    cities: {
+      type: Object
+    }
+  },
 
   data() {
-    console.log(this.$store.state.cities.cities);
+    console.log(this.cities);
     return {
-      form: this.createNewForm(),
-      cities: this.$store.state.cities.cities
+      form: { city: "", startTime: "", endTime: "", checked: [] },
+
+      options: this.$store.state.cities.cities
     };
   },
 
   methods: {
+    getSelectedItem(data) {
+      console.log(data);
+    },
     onSubmit(evt) {
       evt.preventDefault();
       console.log(this.form.city);
-      //alert(JSON.stringify(this.form));
+      alert(JSON.stringify(this.form));
       this.$store
         .dispatch("createItinerary", this.form)
         .then(() => {
           //alert("Ity created successfully");
+
           this.$router.push({
-            name: "itinerary"
+            name: "itinerary",
+            params: { name: this.form.city }
           });
           this.form = this.createNewForm();
         })
@@ -97,7 +108,7 @@ export default {
 
     createNewForm() {
       return {
-        city: null,
+        city: "Rome",
         startTime: "",
         endTime: "",
         checked: []
