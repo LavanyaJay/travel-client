@@ -40,5 +40,16 @@ export const actions = {
         commit("DELETE_ITINERARY", data);
       }
     );
+  },
+  clearRejects() {
+    return ItineraryService.clearRejects().then(rejects => {
+      console.log(rejects);
+    });
   }
+  /* clearItinerary({ commit }) {
+    return ItineraryService.clearItinerary().then(itinerary => {
+      console.log(itinerary);
+      commit("CLEAR_ITINERARY");
+    });
+  } */
 };
