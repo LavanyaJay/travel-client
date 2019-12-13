@@ -19,5 +19,6 @@ export default {};
   font-weight: bold;
   background: white;
   text-align: center;
+  font-family: cursive;
 }
 </style>
