@@ -20,6 +20,7 @@ export default {
 <style scoped>
 .tag {
   float: right;
+  margin-right: 100px;
   font-family: cursive;
   font-size: 40px;
   font-weight: bold;

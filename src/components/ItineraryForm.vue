@@ -62,7 +62,7 @@
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit" class="bg-variant-primary">Submit</b-button>
+      <b-button type="submit" class="button">Submit</b-button>
     </b-form>
   </div>
 </template>
@@ -140,5 +140,11 @@ export default {
   width: 500px;
   border: 1 px solid black;
   padding: 20px;
+  margin-left: 100px;
+}
+.button {
+  margin-left: 200px;
+  background: rgb(21, 61, 105);
+  color: white;
 }
 </style>

@@ -9,19 +9,19 @@
 
     <div class="newmain">
       <div class="main" v-if="itinerary.itinerary.length > 0">
-        Hope you enjoy our schedule:
+        <p class="para">Hope you enjoy our schedule:</p>
         <ItineraryCard
           v-for="(itinerary, index) in itinerary.itinerary"
           :key="index"
           :itinerary="itinerary"
+          :firstRec="index"
         />
         <button class="button" v-on:click="onClick()">
           Rebuild New Itinerary
         </button>
       </div>
       <div class="alert" v-if="itinerary.itinerary.length === 0">
-        Sorry, we could'nt find anything suitable for your time. You may want to
-        refine your preferences!!
+        Sorry, we could'nt find anything suitable! Please refine your search !
       </div>
     </div>
   </div>
@@ -72,12 +72,19 @@ export default {
   align-items: left;
   color: black;
   font-size: 18px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+.para {
+  margin-bottom: 10px;
+  font-family: cursive;
+  font-size: 20px;
 }
 .newmain {
   display: flex;
   background-image: none;
   background: rgb(235, 209, 188);
-  height: 1200px;
+  height: 1800px;
   width: inherit;
 }
 
@@ -93,6 +100,7 @@ export default {
   width: 200px;
   background-color: green;
   color: whitesmoke;
+  margin-top: 10px;
 }
 .heading {
   font-family: cursive;
@@ -101,11 +109,11 @@ export default {
   text-align: center;
 }
 .alert {
-  font-family: cursive;
+  font-family: "Times New Roman", Times, serif;
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
-  background-color: brown;
+  background-color: black;
   height: 50px;
   width: 900px;
   margin-left: 150px;

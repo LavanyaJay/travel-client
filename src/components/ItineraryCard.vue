@@ -1,45 +1,64 @@
 <template>
-  <div class="ity_card">
-    <b-card-body>
-      <b-card-title> {{ itinerary.attraction.placeName }} </b-card-title>
+  <div>
+    <div v-if="firstRec !== 0">
+      <font-awesome-icon class="icon" icon="ellipsis-v" />
+    </div>
+    <div v-if="firstRec !== 0">
+      <font-awesome-icon class="icon" icon="bus" /> 30 mins
+    </div>
+    <div v-if="firstRec !== 0">
+      <font-awesome-icon class="icon" icon="ellipsis-v" />
+    </div>
 
-      <b-card-sub-title
-        ><star-rating
-          v-model="itinerary.attraction.rating"
-          star-size="20"
-          read-only="true"
-        ></star-rating
-      ></b-card-sub-title>
-      <b-card-text> Duration: {{ itinerary.attraction.duration }} </b-card-text>
-      <b-card-text class="bg-info">
-        StartTime: {{ itinerary.fromTime }}
-      </b-card-text>
-      <b-card-text class="bg-info">
-        EndTime: {{ itinerary.toTime }}
-      </b-card-text>
+    <div class="ity_card">
+      <b-card-body>
+        <b-card-title> {{ itinerary.attraction.placeName }} </b-card-title>
 
-      <b-card-footer class="footer" @click="deleteAttraction"
-        >Not interested <font-awesome-icon icon="trash"
-      /></b-card-footer>
-    </b-card-body>
-    <div class="image">
-      <img :src="itinerary.attraction.placeImage" alt="" class="img" />
-      <b-button id="show-btn" @click="showModal" variant="primary"
-        >More details</b-button
-      >
-      <b-modal
-        ref="my-modal"
-        hide-footer
-        :title="itinerary.attraction.placeName"
-      >
-        <div class="d-block text-center">
-          <img :src="itinerary.attraction.placeImage" alt="" />
-          <p class="content">{{ itinerary.attraction.placeDesc }}</p>
-        </div>
-        <b-button class="mt-3" variant="outline-danger" block @click="hideModal"
-          >Close</b-button
+        <b-card-sub-title
+          ><star-rating
+            v-model="itinerary.attraction.rating"
+            star-size="20"
+            read-only="true"
+          ></star-rating
+        ></b-card-sub-title>
+        <b-card-text>
+          Duration: {{ itinerary.attraction.duration }}
+        </b-card-text>
+        <b-card-text class="bg-info">
+          StartTime: {{ itinerary.fromTime }}
+        </b-card-text>
+        <b-card-text class="bg-info">
+          EndTime: {{ itinerary.toTime }}
+        </b-card-text>
+
+        <b-card-footer class="footer" @click="deleteAttraction"
+          >Not interested <font-awesome-icon icon="trash"
+        /></b-card-footer>
+      </b-card-body>
+
+      <div class="image">
+        <img :src="itinerary.attraction.placeImage" alt="" class="img" />
+        <b-button id="show-btn" @click="showModal" variant="primary"
+          >More details</b-button
         >
-      </b-modal>
+        <b-modal
+          ref="my-modal"
+          hide-footer
+          :title="itinerary.attraction.placeName"
+        >
+          <div class="d-block text-center">
+            <img :src="itinerary.attraction.placeImage" alt="" />
+            <p class="content">{{ itinerary.attraction.placeDesc }}</p>
+          </div>
+          <b-button
+            class="mt-3"
+            variant="outline-danger"
+            block
+            @click="hideModal"
+            >Close</b-button
+          >
+        </b-modal>
+      </div>
     </div>
   </div>
 </template>
@@ -54,7 +73,8 @@ export default {
     StarRating
   },
   props: {
-    itinerary: Object
+    itinerary: Object,
+    firstRec: Number
   },
 
   methods: {
@@ -112,8 +132,10 @@ time {
   float: right;
   height: 40px;
 }
-
 .star {
   background: black;
+}
+.icon {
+  margin-left: 400px;
 }
 </style>
