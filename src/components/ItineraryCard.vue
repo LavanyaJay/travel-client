@@ -65,11 +65,10 @@ export default {
       this.$refs["my-modal"].hide();
     },
     deleteAttraction() {
-      console.log("Hi");
       this.$store
         .dispatch("deleteItinerary", this.itinerary)
         .then(() => {
-          alert("Ity deleted successfully");
+          console.log("Ity deleted successfully");
         })
         .catch({});
     }

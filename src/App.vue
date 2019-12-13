@@ -11,12 +11,11 @@
   color: white;
   box-sizing: border-box;
   width: 500px;
-  padding: 0 20px 20px;
+
   margin: 0 auto;
   color: white;
   width: inherit;
 }
-
 #nav {
   padding: 30px;
   margin-bottom: 30px;
@@ -24,7 +23,6 @@
   align-content: center;
   padding-left: 500px;
 }
-
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
@@ -35,13 +33,11 @@ body {
   background-size: auto;
   color: black;
   height: 100%;
-
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
 hr {
   box-sizing: content-box;
   height: 0;

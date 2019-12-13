@@ -1,16 +1,5 @@
-<template>
-  <div>
-    <NavBar />
-    <div class="tag">
-      We help you to see the world.............!!!
-    </div>
-    <ItineraryForm :cities="cities" />
-  </div>
-</template>
-
 <script>
 import ItineraryForm from "../components/ItineraryForm";
-
 import { mapState } from "vuex";
 import NavBar from "../components/NavBar";
 
@@ -29,15 +18,6 @@ export default {
 </script>
 
 <style scoped>
-.notification-container {
-  position: fixed;
-  bottom: 0;
-}
-
-.ityForm {
-  background-color: green;
-}
-
 .tag {
   float: right;
   font-family: cursive;
@@ -45,3 +25,13 @@ export default {
   font-weight: bold;
 }
 </style>
+
+<template>
+  <div>
+    <NavBar />
+    <div class="tag">
+      Make your time count....
+    </div>
+    <ItineraryForm :cities="cities" />
+  </div>
+</template>
