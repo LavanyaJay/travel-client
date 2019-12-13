@@ -1,6 +1,6 @@
 ## Table of content
 
-= [Aim](#Goal)
+- [Aim](#Goal)
 
 - [How to start](#How-to-start)
 - [Technologies used for this project](#Technologies-used-for-this-project)
