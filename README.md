@@ -1,24 +1,33 @@
-# client
+## Table of content
 
-## Project setup
-```
-npm install
-```
+= [Aim](#Goal)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- [How to start](#How-to-start)
+- [Technologies used for this project](#Technologies-used-for-this-project)
+- [Contributors](#Contributors)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Goal
 
-### Lints and fixes files
-```
-npm run lint
-```
+The goal of the project is to:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Create a 1 day itinerary in the city of choice based on time and preferred activities
+2. Display the schedule to the user
+3. Allow user to edit the itinerary, by deleting attractions that are not preferred.
+4. Rebuild new itinerary after deletion.
+
+## How to start
+
+To start working on this project you can download or clone this repository, after you can:
+
+1. Run `npm install` on your terminal to install all the dependendencies
+2. Run `npm run serve` to get a preview of the front end
+
+## Technologies used for this project
+
+1. Vuejs with `vue create`
+2. `vuex` to set up a store and dispatch actions
+3. `axios` to fetch data from the database
+
+## Contributors
+
+- Lavanya Jayapalan
