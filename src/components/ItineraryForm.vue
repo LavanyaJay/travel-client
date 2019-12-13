@@ -56,8 +56,8 @@
           <b-form-checkbox class="text-variant-black" value="2"
             >Museums</b-form-checkbox
           >
-          <b-form-checkbox value="3">Theater</b-form-checkbox>
-          <b-form-checkbox value="4">Food</b-form-checkbox>
+          <b-form-checkbox value="3">Food</b-form-checkbox>
+          <b-form-checkbox value="4">Theater</b-form-checkbox>
           <b-form-checkbox value="5">Adventure</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>
@@ -107,18 +107,17 @@ export default {
     },
     onSubmit(evt) {
       evt.preventDefault();
-      console.log(this.form.city);
-      alert(JSON.stringify(this.form));
       this.$store
         .dispatch("fetchAttractions", this.form)
         .then(() => {
-          //alert("Ity created successfully");
           this.$store.dispatch("storeInput", this.form).then(() => {
-            this.$router.push({
-              name: "itinerary",
-              params: { name: this.form.city }
+            this.$store.dispatch("clearRejects", this.form).then(() => {
+              this.$router.push({
+                name: "itinerary",
+                params: { name: this.form.city }
+              });
+              this.form = this.createNewForm();
             });
-            this.form = this.createNewForm();
           });
         })
         .catch({});

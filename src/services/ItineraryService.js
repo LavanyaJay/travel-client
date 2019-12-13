@@ -14,15 +14,16 @@ export default {
     return apiClient.get("/city");
   },
   computeItinerary(data) {
-    console.log(data);
     return apiClient.post(`/attraction`, data);
   },
   addRejectedAttraction(name) {
-    console.log(name);
     const data = { name: name };
     return apiClient.post(`/rejectAttraction`, data);
   },
   getItinerary() {
     return apiClient.get("/itinerary");
+  },
+  clearRejects() {
+    return apiClient.delete(`/deletereject`);
   }
 };
