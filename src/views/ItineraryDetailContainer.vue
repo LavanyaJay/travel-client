@@ -8,7 +8,7 @@
     </div>
 
     <div class="newmain">
-      <div class="main">
+      <div class="main" v-if="itinerary.itinerary.length > 0">
         Hope you enjoy our schedule:
         <ItineraryCard
           v-for="(itinerary, index) in itinerary.itinerary"
@@ -18,6 +18,10 @@
         <button class="button" v-on:click="onClick()">
           Rebuild New Itinerary
         </button>
+      </div>
+      <div class="alert" v-if="itinerary.itinerary.length === 0">
+        Sorry, we could'nt find anything suitable for your time. You may want to
+        refine your preferences!!
       </div>
     </div>
   </div>
@@ -50,10 +54,12 @@ export default {
 <style scoped>
 .header {
   height: 200px;
-  width: 1240px;
+  width: 1280px;
   border: 1px solid black;
   margin-left: 0;
+  margin-right: 0;
   padding-left: 0;
+  padding-right: 0;
   background-image: url("https://image.shutterstock.com/image-photo/roman-colloseum-rome-italy-evening-260nw-1479400997.jpg");
   font-family: cursive;
   font-size: 100px;
@@ -93,5 +99,17 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
+}
+.alert {
+  font-family: cursive;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: brown;
+  height: 50px;
+  width: 900px;
+  margin-left: 150px;
+  margin-top: 180px;
+  font-size: 20px;
 }
 </style>

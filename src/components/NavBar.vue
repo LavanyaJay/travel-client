@@ -1,6 +1,6 @@
 <template>
   <div id="nav" class="nav">
-    ITINERARY PLANNER
+    Trip-A-Day
   </div>
 </template>
 
@@ -11,12 +11,13 @@ export default {};
 <style scoped>
 .nav {
   align-items: center;
-  height: 60px;
+  height: 100px;
   width: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
-  color: rgb(92, 170, 219);
+  color: rgb(21, 61, 105);
   font-weight: bold;
-  background: rgb(21, 61, 105);
+  background: white;
+  text-align: center;
 }
 </style>

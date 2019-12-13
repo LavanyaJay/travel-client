@@ -1,17 +1,25 @@
 <template>
   <div class="main">
     <b-form @submit="onSubmit">
-      <b-form-group id="input-group-1" label="City:" label-for="input-1">
+      <b-form-group
+        id="input-group-1"
+        class="text-variant-black"
+        label="City:"
+        label-for="input-1"
+      >
         <b-form-select id="input-1" v-model="form.city">
-          <!-- <template v-slot:first>
-            <option :value="null" disabled>-- Please select an option --</option>
-          </template>-->
-          <option v-for="city in options" :key="city.name">
+          <option :value="null" disabled>-- Please select an option --</option>
+          <option v-for="city in options.cities" :key="city.name">
             {{ city.name }}
           </option>
         </b-form-select>
       </b-form-group>
-      <b-form-group id="input-group-2" label="Start Time:" label-for="input-2">
+      <b-form-group
+        id="input-group-2"
+        class="text-variant-black"
+        label="Start Time:"
+        label-for="input-2"
+      >
         <b-form-input
           id="input-2"
           v-model="form.startTime"
@@ -21,7 +29,12 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-3" label="End Time:" label-for="input-3">
+      <b-form-group
+        id="input-group-3"
+        class="text-variant-black"
+        label="End Time:"
+        label-for="input-3"
+      >
         <b-form-input
           id="input-3"
           v-model="form.endTime"
@@ -32,16 +45,24 @@
       </b-form-group>
 
       <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-          <b-form-checkbox value="1">Monuments</b-form-checkbox>
-          <b-form-checkbox value="2">Museums</b-form-checkbox>
+        <b-form-checkbox-group
+          v-model="form.checked"
+          class="text-variant-black"
+          id="checkboxes-4"
+        >
+          <b-form-checkbox class="text-variant-black" value="1"
+            >Monuments</b-form-checkbox
+          >
+          <b-form-checkbox class="text-variant-black" value="2"
+            >Museums</b-form-checkbox
+          >
           <b-form-checkbox value="3">Theater</b-form-checkbox>
           <b-form-checkbox value="4">Food</b-form-checkbox>
           <b-form-checkbox value="5">Adventure</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>
 
-      <b-button type="submit" class="-fill-gradient">Submit</b-button>
+      <b-button type="submit" class="bg-variant-primary">Submit</b-button>
     </b-form>
   </div>
 </template>
@@ -73,16 +94,16 @@ export default {
   },
 
   data() {
-    console.log(this.cities);
+    console.log("------> cities", this.cities);
     return {
-      form: { city: "", startTime: "", endTime: "", checked: [] },
-      options: this.$store.state.cities.cities
+      form: this.createNewForm(),
+      options: this.cities
     };
   },
 
   methods: {
-    getSelectedItem(data) {
-      console.log(data);
+    getSelectedItem() {
+      console.log("-----> inside");
     },
     onSubmit(evt) {
       evt.preventDefault();
@@ -105,9 +126,9 @@ export default {
 
     createNewForm() {
       return {
-        city: "Rome",
-        startTime: "10:00:00",
-        endTime: "16:00:00",
+        city: "",
+        startTime: "",
+        endTime: "",
         checked: []
       };
     }
@@ -119,5 +140,6 @@ export default {
   height: 500px;
   width: 500px;
   border: 1 px solid black;
+  padding: 20px;
 }
 </style>
