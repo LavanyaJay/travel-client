@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="header">
-      ROME
-      <router-link to="/"
-        ><div class="home">Trip-A-Day Planner</div></router-link
-      >
+      {{this.name}}
+      <router-link to="/">
+        <div class="home">Trip-A-Day Planner</div>
+      </router-link>
     </div>
 
     <div class="newmain">
@@ -16,13 +16,12 @@
           :itinerary="itinerary"
           :firstRec="index"
         />
-        <button class="button" v-on:click="onClick()">
-          Rebuild New Itinerary
-        </button>
+        <button class="button" v-on:click="onClick()">Rebuild New Itinerary</button>
       </div>
-      <div class="alert" v-if="itinerary.itinerary.length === 0">
-        Sorry, we could'nt find anything suitable! Please refine your search !
-      </div>
+      <div
+        class="alert"
+        v-if="itinerary.itinerary.length === 0"
+      >Sorry, we could'nt find anything suitable! Please refine your search !</div>
     </div>
   </div>
 </template>
@@ -58,7 +57,7 @@ export default {
   border: 1px solid black;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 0;
+  padding-left: 30px;
   padding-right: 0;
   background-image: url("https://image.shutterstock.com/image-photo/roman-colloseum-rome-italy-evening-260nw-1479400997.jpg");
   font-family: cursive;
