@@ -10,7 +10,7 @@
 The goal of the project is to:
 
 1. Create a 1 day itinerary in the city of choice based on time and preferred activities
-2. Display the schedule to the user
+2. Display the Itinerary to the user
 3. Allow user to edit the itinerary, by deleting attractions that are not preferred.
 4. Rebuild new itinerary after deletion.
 5. View the demo of the application
