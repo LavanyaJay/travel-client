@@ -1,7 +1,6 @@
 ## Table of content
 
 - [Aim](#Goal)
-
 - [How to start](#How-to-start)
 - [Technologies used for this project](#Technologies-used-for-this-project)
 - [Contributors](#Contributors)
@@ -14,6 +13,8 @@ The goal of the project is to:
 2. Display the schedule to the user
 3. Allow user to edit the itinerary, by deleting attractions that are not preferred.
 4. Rebuild new itinerary after deletion.
+5. View the demo of the application
+   ![gif](./demo/ItineraryPlanner.gif)
 
 ## How to start
 
