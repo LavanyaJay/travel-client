@@ -18,10 +18,9 @@ The goal of the project is to:
 
 ## How to start
 
-To start working on this project you can download or clone this repository, after you can:
-
-1. Run `npm install` on your terminal to install all the dependendencies
-2. Run `npm run serve` to get a preview of the front end
+1. Clone the git repository into a new directory on your computer: `git clone git@github.com:LavanyaJay/travel-client.git`
+2. Run `npm install` on your terminal to install all the dependendencies
+3. Run `npm run serve` to get a preview of the front-end
 
 ## Technologies used for this project
 

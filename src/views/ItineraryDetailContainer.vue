@@ -59,7 +59,8 @@ export default {
   margin-right: 0;
   padding-left: 30px;
   padding-right: 0;
-  background-image: url("https://image.shutterstock.com/image-photo/roman-colloseum-rome-italy-evening-260nw-1479400997.jpg");
+  background-color: rgb(235, 209, 188);
+  /*  background-image: url("https://image.shutterstock.com/image-photo/roman-colloseum-rome-italy-evening-260nw-1479400997.jpg"); */
   font-family: cursive;
   font-size: 100px;
   color: black;
